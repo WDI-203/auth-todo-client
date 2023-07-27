@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import TodoCard from "../Components/TodoCard";
 
 const Todos = () => {
-	const { todos, handleDelete } = useOutletContext();
+	const { todos, handleDelete, handleEdit } = useOutletContext();
 	return (
 		<div
 			style={{ display: "flex", justifyContent: "start", alignItems: "start" }}
@@ -18,7 +18,12 @@ const Todos = () => {
 				<tr style={{ margin: "5px", textAlign: "start" }}></tr>
 				{todos.map((todo) => {
 					return (
-						<TodoCard key={todo._id} todo={todo} handleDelete={handleDelete} />
+						<TodoCard
+							key={todo._id}
+							todo={todo}
+							handleDelete={handleDelete}
+							handleEdit={handleEdit}
+						/>
 					);
 				})}
 			</table>
